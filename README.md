@@ -36,8 +36,7 @@ In this project, my aim is to analyze the relationship between **fictional chara
 ## Machine Learning Models and Analysis
 - **Trend Analysis:** Use correlation metrics to identify relationships between character name popularity and baby name trends.  
 - **Time-Series Analysis & Regression:**  
-  - Apply **linear regression** to model the relationship between fictional character popularity and real-world baby name counts over time.  
-  - Use features such as media mentions per year, type of media, and release year to predict baby name popularity.  
+  - Apply **linear regression** to model the relationship between fictional character popularity and real-world baby name counts over time.   
   - Consider **lag variables** to account for delayed influence of fictional characters on baby naming trends.  
 - **Clustering:** Group names to detect patterns where fictional influence might be stronger in certain decades or media types.   
 - **Clustering:** Group names to detect patterns where fictional influence might be stronger in certain decades or media types.  
