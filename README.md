@@ -38,8 +38,7 @@ In this project, my aim is to analyze the relationship between **fictional chara
 - **Time-Series Analysis & Regression:**  
   - Apply **linear regression** to model the relationship between fictional character popularity and real-world baby name counts over time.   
   - Consider **lag variables** to account for delayed influence of fictional characters on baby naming trends.  
-- **Clustering:** Group names to detect patterns where fictional influence might be stronger in certain decades or media types.   
-- **Clustering:** Group names to detect patterns where fictional influence might be stronger in certain decades or media types.  
+- **Clustering:** Group names to detect patterns where fictional influence might be stronger in certain decades or genre types.  
 
 ## Expected Outcomes
 - Insights into how fictional media influences real-world naming trends.  
@@ -50,4 +49,5 @@ In this project, my aim is to analyze the relationship between **fictional chara
 ## Tools & Technologies
 - Python (pandas, numpy, matplotlib, seaborn, plotly)  
 - Web scraping (BeautifulSoup or requests for character name extraction)  
-- Jupyter Notebook for analysis  
+- Jupyter Notebook for analysis
+- More can be added. 
