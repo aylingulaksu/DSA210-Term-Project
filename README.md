@@ -3,7 +3,7 @@
 ## Idea of Project
 In this project, my aim is to analyze the relationship between **fictional character names** and **real-world baby name trends** in the US over time. My goal is to explore whether names of characters from movies influence the popularity of baby names and how closely fictional trends align with real-life naming patterns.
 
-## Description of Dataset
+## Description of the Datasets
 
 ### Baby Names Dataset 👶🍼
 - **Source:** [US Baby Names by Year of Birth](https://www.kaggle.com/datasets/thedevastator/us-baby-names-by-year-of-birth)  
@@ -12,7 +12,7 @@ In this project, my aim is to analyze the relationship between **fictional chara
 
 ### Character Names Dataset 🎭
 - **Source:** [CMU Movie Dataset](https://www.cs.cmu.edu/~ark/personas/)  
-- **Content:** Contains fictional character names along with associated personas, story context, and media type.  
+- **Content:** Contains fictional character names along with associated personas, story context, and movie.  
 - **Purpose:** To extract character names from media and analyze their popularity and overlap with real baby names.
 
 ## Plan
