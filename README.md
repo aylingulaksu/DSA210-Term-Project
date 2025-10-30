@@ -20,7 +20,7 @@ In this project, my aim is to analyze the relationship between **fictional chara
 ### Data Collection
 - Download the baby names dataset from Kaggle.  
 - Parse or scrape the CMU Movie dataset to extract character names.  
-- Collect additional metadata for characters if available, such as media type, release year, and genre.
+- Collect additional metadata for characters if available, such as release year and genre.
 
 ### Data Preparation and Analysis
 - Normalize names in both datasets to account for capitalization and spelling differences.  
