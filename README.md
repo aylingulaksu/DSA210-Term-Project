@@ -1,16 +1,16 @@
-# Exploring the Influence of Fictional Character Names on Popular Baby Names in the US ✧🎥🎞️˚
+# Exploring the Influence of Fictional Character Names on Popular Baby Names in the US ✧🎥🎞️✮⋆˙
 
 ## Idea of Project
 In this project, my aim is to analyze the relationship between **fictional character names** and **real-world baby name trends** in the US over time. My goal is to explore whether names of characters from movies influence the popularity of baby names and how closely fictional trends align with real-life naming patterns.
 
 ## Description of Dataset
 
-### Baby Names Dataset
+### Baby Names Dataset 👶🍼
 - **Source:** [US Baby Names by Year of Birth](https://www.kaggle.com/datasets/thedevastator/us-baby-names-by-year-of-birth)  
 - **Content:** Includes name, gender, count, and year of birth for babies registered in the US.  
 - **Purpose:** To analyze the yearly popularity of real-world names and detect trends.
 
-### Character Names Dataset
+### Character Names Dataset 🎭
 - **Source:** [CMU Movie Dataset](https://www.cs.cmu.edu/~ark/personas/)  
 - **Content:** Contains fictional character names along with associated personas, story context, and media type.  
 - **Purpose:** To extract character names from media and analyze their popularity and overlap with real baby names.
