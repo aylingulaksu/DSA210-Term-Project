@@ -1,4 +1,4 @@
-# Exploring the Influence of Fictional Character Names on Popular Baby Names in the US
+# Exploring the Influence of Fictional Character Names on Popular Baby Names in the US ˙✧˖°🎥 ༘ ⋆｡🎞️˚
 
 ## Idea of Project
 In this project, my aim is to analyze the relationship between **fictional character names** and **real-world baby name trends** in the US over time. My goal is to explore whether names of characters from movies influence the popularity of baby names and how closely fictional trends align with real-life naming patterns.
