@@ -1,221 +1,249 @@
-Do Fictional Characters Influence Baby Names?
-Project Overview
-In this project, I analyzed whether character names from movies and TV shows actually influence what people name their babies. I used US baby name data from 1880-2015 and movie character data from 1895-2016 to see if there's a real connection.
+✧🎥🎞️✮⋆˙
+Exploring the Influence of Fictional Character Names on Popular Baby Names in the US
+Idea of Project
 
-The Data
-Baby Names Dataset
-Source: Kaggle - US Baby Names by Year of Birth
-Size: 224,261 records
-Years: 1880-2015
-Info: Name, birth year, gender, count
-Total babies: 312 million+
-Unique names: 6,917
-Character Names Dataset
-Source: CMU Movie Dataset
-Size: 450,669 character records
-Years: 1895-2016
-Info: Character name, release date, actor, gender
-Valid characters: 147,477
-Data Cleaning
-Cleaning the Baby Names
-Removed spaces and capitalized names consistently
-Removed any records with missing names or years
-Pretty straightforward dataset to work with
-Cleaning the Character Names
-Converted release dates to proper datetime format
-Removed characters without names or release years
-Got rid of empty/blank character names
-Final dataset: 147,477 characters from 1895-2016
-The Big Idea: Splitting Character Names
-This was the most important preprocessing step. Here's why:
+In this project, I analyzed whether fictional character names from movies and TV shows have a measurable influence on baby naming trends in the United States. Using more than a century of data, the goal was to determine if character names become more popular after their on-screen appearance — and if so, how strong and how delayed this effect is.
 
-Character names in movies are often like "Rachel Green" or "Lieutenant Melanie Ballard". But when parents name their babies, they usually just use one part - like "Rachel" or "Melanie".
+📚 Description of the Datasets
+Baby Names Dataset 👶🍼
 
-So I split every character name into individual parts:
+Source: Kaggle – US Baby Names by Year of Birth
+
+Years: 1880–2015
+
+Size: 224,261 records (312M+ babies)
+
+Unique Names: 6,917
+
+Fields: name, gender, birth year, count
+
+Cleaning Steps:
+
+Standardized capitalization
+
+Removed rows with missing names or years
+
+Ensured consistent formatting
+
+Purpose: Track year-by-year popularity of real baby names.
+
+Character Names Dataset 🎭
+
+Source: CMU Movie Summary Corpus
+
+Years: 1895–2016
+
+Size: 450,669 character entries
+
+Valid Characters After Cleaning: 147,477
+
+Fields: character name, actor, movie, release date
+
+Cleaning Steps:
+
+Converted release dates to proper datetime formats
+
+Removed entries with missing names or years
+
+Filtered out empty or placeholder names
+
+Purpose: Extract fictional character names and map them to their release years.
+
+🧹 Key Data Processing Step: Splitting Character Names
+
+Character names often include multiple parts:
+
+“Rachel Green”
+
+“Lieutenant Melanie Ballard”
+
+But parents usually pick only one of those parts when naming babies.
+
+So each character name was split into individual components:
 
 "Rachel Green" → ["Rachel", "Green"]
+
 "Lieutenant Melanie Ballard" → ["Lieutenant", "Melanie", "Ballard"]
-This way, if someone named their baby "Rachel" after Rachel Green, I'd catch it!
 
-Results:
+This helps detect real influences even if the baby name matches just one part.
 
-Started with 147,477 full character names
-Split into 256,592 individual names
-Found 54,335 unique individual names
-Average of 1.74 names per character
-Creating the Analysis Dataset
-For each character name, I looked at baby name popularity:
+Results of Splitting:
 
-Before the character appeared: How many babies had that name before the movie/show came out?
-After the character appeared: How many babies had that name 1, 2, 3, and 5 years later?
-Then I calculated the percentage change to see if there was an increase.
+147,477 full names → 256,592 individual name tokens
 
-Final dataset:
+54,335 unique individual names
 
-155,112 unique character name-year combinations
-186,404 total comparisons (across different time windows)
-3,816 unique names tracked over time
-1,471 names showed some increase (38.5%)
-What I Found
-The Main Pattern: It Takes Time!
-Time After Character Release	Average % Change
-1 year later	-20% (actually decreased!)
-3 years later	+343% (more than 3x increase!)
-5 years later	+990% (almost 10x increase!)
-This was surprising! Names don't immediately jump in popularity. There's actually a delay of 2-3 years before you see the big increases. Makes sense though - parents need time to discover the character, see if it becomes popular, and then have a baby.
+Avg 1.74 tokens per character
 
-Real Examples: Names That Blew Up
-Here are some names that got WAY more popular after a character appeared:
+🧪 Building the Analysis Dataset
 
+For every character name (token) and its release year, I computed:
+
+Popularity before the character appeared
+
+Popularity 1, 2, 3, and 5 years later
+
+Percentage increase or decrease
+
+Final Analysis Dataset:
+
+155,112 character name–year combinations
+
+186,404 total comparisons
+
+3,816 unique names tracked
+
+1,471 names showed measurable increases (38.5%)
+
+📈 Results
+⏳ The Key Pattern: Influence Takes Time
+Years After Release	Avg % Change
+1 year	–20% (decrease)
+3 years	+343%
+5 years	+990%
+
+Names do not immediately become popular after a character appears.
+Instead, there's a 2–3 year delay, likely because:
+
+people need time to watch the show/movie
+
+character popularity must spread culturally
+
+parents need to actually have a baby during that time
+
+🌟 Real Examples of Names That Skyrocketed
 Jeffrey (1939)
-Before the character: 157 babies
-3 years after: 2,681 babies
-Increase: 1,597% 🚀
 
-Year by year:
+Before release: 157 babies
+3 years later: 2,681 babies
+➡️ +1597% increase
 
-1938: 157 babies
-1939: 378 babies ← character released
-1940: 801 babies
-1941: 1,502 babies
-1942: 2,058 babies
-1943: 2,171 babies
-1944: 2,328 babies
-Cadence (2003)
-Before: 232 babies
-After: 3,840 babies
-Increase: 1,548%
+Year-by-year:
 
-Gage (1990)
-Before: 171 babies
-After: 2,231 babies
-Increase: 1,197%
+1938: 157
 
-Justice (1993)
-Before: 267 babies
-After: 3,277 babies
-Increase: 1,123%
+1939: 378 ← character released
 
-Liz (1957)
-Before: 117 babies
-After: 1,435 babies
-Increase: 1,116%
+1940: 801
 
-More Names That Got Popular
-Name	Year	Before	After	% Increase
+1941: 1,502
+
+1942: 2,058
+
+1943: 2,171
+
+1944: 2,328
+
+Other Big Increases
+Name	Year	Before	After	Increase
+Cadence	2003	232	3,840	+1548%
+Gage	1990	171	2,231	+1197%
+Justice	1993	267	3,277	+1123%
+Liz	1957	117	1,435	+1116%
 Dawson	1998	828	7,009	+746%
 Vanessa	1953	872	7,343	+741%
 Bentley	2008	596	4,880	+718%
 Peyton	1990	107	832	+671%
 Declan	1997	105	709	+570%
-Statistical Testing
-I needed to prove these patterns weren't just coincidence, so I ran some statistical tests.
+🧪 Statistical Testing
+Hypotheses
 
-My Hypotheses
-Null Hypothesis (H₀): Character names have NO effect on baby names
-Alternative Hypothesis (H₁): Character names DO increase baby name popularity
-Test 1: T-Test (Are the averages really different from zero?)
-1 Year After Release:
+H₀: Character names have no effect on baby naming trends
 
-Average change: -20.20%
-P-value: 0.999994
-Result: No significant effect ❌
-Makes sense - too early!
-3 Years After Release:
+H₁: Character names increase baby name popularity
 
-Average change: +343.18%
-Sample size: 46,601
-P-value: < 0.000001
-Result: SIGNIFICANT EFFECT! ✅
-This is strong evidence that character names matter!
-5 Years After Release:
+1. T-Tests
+1 Year After Release
 
-Average change: +990.24%
-P-value: < 0.000001
-Result: VERY SIGNIFICANT EFFECT! ✅✅
-The effect gets even stronger over time!
-Test 2: ANOVA (Does the effect change over time?)
-I tested whether the influence is different at 1 year vs 3 years vs 5 years.
+Avg: –20.20%
 
-Group Averages:
+p-value: 0.999994
+❌ No significant effect
 
-1 year: -20%
-3 years: +343%
-5 years: +990%
-Result: Yes, the time window matters A LOT! The influence gets progressively stronger over time.
+3 Years After Release
 
-Test 3: Proportion Test (Do more than half of names increase?)
-I checked if more than 50% of names increase after a character appears.
+Avg: +343.18%
 
-Result: In the 3-5 year windows, significantly more than half of character names lead to baby name increases. This isn't random - it's a real pattern.
+N = 46,601
 
-Conclusions
-What I Learned
-1. Yes, fictional characters DO influence baby names!
+p-value: < 0.000001
+✅ Very significant
 
-The evidence is really strong:
+5 Years After Release
 
-3 years after a character appears: average +343% increase
-5 years after: average +990% increase
-P-values < 0.000001 (basically impossible to happen by chance)
-2. It takes time for the effect to happen
+Avg: +990.24%
 
-Year 1: Actually a slight decrease (-20%)
-Years 3-5: Huge increases (+343% to +990%)
-This delay makes sense - parents need time to:
+p-value: < 0.000001
+✅ Extremely significant
 
-Watch the movie/show
-See if the character becomes culturally significant
-Decide they like the name
-Have a baby and name them
-3. The effects are MASSIVE
+2. ANOVA
 
-Some names increased by over 1,500%! Thousands of parents chose names influenced by characters. This isn't subtle - it's a major cultural phenomenon.
+Groups: 1-year vs 3-year vs 5-year changes
+➡️ Large statistically significant difference
+➡️ The influence increases the longer the time window.
 
-4. This has been happening for over 100 years
+3. Proportion Test
 
-I found examples from:
+In the 3–5 year windows:
+✔ Significantly more than half of character names lead to increases.
 
-1910s (Billy, Elwood)
-1950s (Liz, Vanessa)
-1990s (Gage, Peyton)
-2000s (Cadence, Bentley)
-Fictional characters have been influencing baby names for generations!
+🧠 Conclusions
+✔ Fictional characters do influence baby names
 
-5. It's widespread
+And the effect is massive, widespread, and statistically undeniable.
 
-Analyzed 3,816 different names
-1,471 showed increases (38.5%)
-This affects thousands of families
-Why This Matters
-This project shows that:
+✔ The effect appears after 2–3 years
 
-Movies and TV shows have real-world impact on personal decisions
-Cultural trends can be measured and predicted
-Fictional characters become part of our actual lives in measurable ways
-Limitations
-Can't prove 100% causation (maybe other factors involved)
-Some character releases might be missing from the dataset
-Splitting names might have counted some matches that weren't real influences
-Didn't look at differences between movies vs TV, or different genres
-Future Ideas
-Things I'd like to explore:
+Immediate influence is rare — trends need time to grow.
 
-Does box office success correlate with bigger naming effects?
-Are certain genres (like romance or fantasy) more influential?
-What about regional differences in the US?
-Can we predict which character names will become popular?
-Visualizations Generated
-I created several plots to visualize these patterns:
+✔ Some names see 1000%+ jumps
 
-Distribution charts showing how the % changes shift from negative (year 1) to super positive (year 5)
-Bar charts of average changes over time
-Time series plots of individual names with markers showing when characters appeared
-Case study plots for the top influenced names
+Fiction shapes real naming culture in measurable ways.
 
-References
+✔ This trend has existed for over 100 years
+
+From the 1910s to the 2000s.
+
+✔ Around 38.5% of all tracked names increase
+
+Thousands of families follow naming inspiration from media.
+
+⚠️ Limitations
+
+Cannot prove absolute causation (correlation ≠ causation)
+
+Some character releases may be missing or misdated
+
+Splitting names may over-match in some cases
+
+Did not differentiate movies vs TV, nor genres
+
+Did not analyze gender-specific effects
+
+🚀 Future Ideas
+
+Compare impact by box office success
+
+Study genre effects (romance vs fantasy vs horror)
+
+Geographic breakdown within the US
+
+Predictive modeling of future baby name trends
+
+Compare film vs TV influences separately
+
+📊 Visualizations Created
+
+Distribution charts of % changes
+
+Bar plots of average changes over time
+
+Time-series plots for specific names
+
+Case studies of the largest increases
+
+📚 References
+
 US Baby Names Dataset (Kaggle)
-CMU Movie Summary Corpus
-Summary
-Bottom line: Fictional characters have a real, measurable, and massive influence on what people name their babies. The effect takes a few years to show up, but when it does, it's huge - we're talking hundreds or even thousands of percent increases for popular character names. This has been happening for over 100 years and affects thousands of families. Pretty cool to see fiction influencing reality in such a concrete way!
 
+CMU Movie Summary Corpus
