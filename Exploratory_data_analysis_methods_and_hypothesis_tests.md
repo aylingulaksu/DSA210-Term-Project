@@ -42,7 +42,7 @@ Dataset was clean and easy to work with.
 
 ---
 
-# 🔑 The Big Idea: Splitting Character Names
+# 🔑 Splitting Character Names
 Movie characters often have multi-part names like:
 
 - `"Rachel Green"` → `["Rachel", "Green"]`  
