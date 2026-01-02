@@ -1,48 +1,48 @@
-## ✧🤖📊⋆˙ Machine Learning Analysis
+## Machine Learning Analysis
 ### Advanced Predictive Modeling of Character Name Influence on Baby Naming Trends
 
 After completing exploratory data analysis and statistical testing, I applied multiple machine learning models to predict and classify baby naming trends influenced by fictional character names. 
 
 ---
 
-## 🧠✨ Feature Engineering
+## Feature Engineering
 Before applying machine learning models, I created a rich feature set from the temporal influence dataset to capture historical behavior, phonetic properties, and cultural context.
 
-### ⏳ Temporal Features
+###  Temporal Features
 * **before_1y, before_3y, before_5y:** Popularity before character release.
 * **after_1y, after_3y, after_5y:** Popularity after release.
 * **change_1y, change_3y, change_5y:** Absolute change in popularity.
 * **pct_change_1y, pct_change_3y:** Percentage change.
 
-### 📜 Historical Trend Features
+###  Historical Trend Features
 * **recent_trend:** 5-year moving average growth rate.
 * **total_historical:** Total babies with the name before release.
 * **avg_historical:** Average annual popularity before release.
 
-### 🔤 Name Characteristics
+###  Name Characteristics
 * **name_length:** Number of characters.
 * **vowel_count:** Number of vowels.
 * **vowel_ratio:** Proportion of vowels (phonetic appeal).
 
-### 🎬 Context Features
+###  Context Features
 * **character_count:** Number of characters with the name in release year.
 * **decade:** Decade of character release (captures cultural era).
 
-### 🎯 Binary Targets
+###  Binary Targets
 * **had_increase_1y:** Increase 1 year after release (0/1).
 * **had_increase_3y:** Increase 3 years after release (0/1).
 * **had_significant_increase:** Increase >100 babies (0/1).
 
 ---
 
-## 📦📊 Final Machine Learning Dataset
+##  Final Machine Learning Dataset
 * **186,404** character–name–year records.
 * **3,816** unique names tracked over time.
 * **20+** engineered features per observation.
 
 ---
 
-## 🎯🧩 Problem Framing
+##  Problem Framing
 I framed the analysis as two distinct machine learning tasks:
 
 ### 1. Regression Task
@@ -58,7 +58,7 @@ I framed the analysis as two distinct machine learning tasks:
 
 ---
 
-## 🤖📈 Machine Learning Models
+##  Machine Learning Models
 
 ### 1️⃣ Linear Regression: Baseline & Interpretability
 Establish a baseline model and understand linear relationships.
@@ -97,23 +97,23 @@ High precision indicates reliable predictions, though a lower recall suggests th
 
 ---
 
-## 🧩🔍 Clustering Analysis
+##  Clustering Analysis
 
 ### 6️⃣ K-Means Clustering: Influence Archetypes
 * **Optimal Clusters:** K = 4
 * **Silhouette Score:** 0.29
 
-**🌟 Cluster Highlights:**
-* ⭐ **Breakout Hits:** Very low initial popularity; explode after character release.
-* 🏛️ **Established Names:** Already highly popular; media exposure has minimal impact.
-* 📈 **Moderate Growth Names:** Steady increase, not explosive.
+** Cluster Highlights:**
+*  **Breakout Hits:** Very low initial popularity; explode after character release.
+*  **Established Names:** Already highly popular; media exposure has minimal impact.
+*  **Moderate Growth Names:** Steady increase, not explosive.
 
 ### 7️⃣ Hierarchical Clustering
 * **Result:** Confirmed the dominance of one common pattern and identified small clusters of rare outliers.
 
 ---
 
-## 🏆📊 Model Comparison
+##  Model Comparison
 
 ### Regression Models
 | Model | R² | RMSE | Strength |
@@ -131,7 +131,7 @@ High precision indicates reliable predictions, though a lower recall suggests th
 
 ---
 
-## 🔑✨ Key Takeaways
+##  Key Takeaways
 * **Predictability:** Character name influence is highly structured and predictable.
 * **Linearity:** Linear dynamics dominate cultural naming trends.
 * **Lag Effect:** Momentum and historical context matter more than the immediate release.
@@ -139,5 +139,5 @@ High precision indicates reliable predictions, though a lower recall suggests th
 
 ---
 
-## 🏁🌟 Conclusion
+##  Conclusion
 Fictional characters **do** influence baby names—and the effect is structured, delayed, and predictable. Machine learning reveals that cultural trends follow interpretable rules, not randomness.
