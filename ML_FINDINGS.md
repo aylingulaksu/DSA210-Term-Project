@@ -140,4 +140,4 @@ High precision indicates reliable predictions, though a lower recall suggests th
 ---
 
 ##  Conclusion
-Fictional characters **do** influence baby names—and the effect is structured, delayed, and predictable. Machine learning reveals that cultural trends follow interpretable rules, not randomness.
+Fictional characters **do** influence baby names and the effect is structured, delayed, and predictable. Machine learning reveals that cultural trends follow interpretable rules, not randomness.
