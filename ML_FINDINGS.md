@@ -88,7 +88,7 @@ Establish a baseline model and understand linear relationships.
 | **Recall** | 0.26 |
 | **F1-score** | 0.39 |
 
-* **Interpretation:** High precision indicates reliable predictions, though a lower recall suggests the model is conservative—ideal for identifying high-confidence cultural hits.
+High precision indicates reliable predictions, though a lower recall suggests the model is conservative—ideal for identifying high-confidence cultural hits.
 
 ### 5️⃣ Random Forest Regression: Non-linear Modeling
 * **Metric (R²):** 0.68
@@ -109,7 +109,7 @@ Establish a baseline model and understand linear relationships.
 * 📈 **Moderate Growth Names:** Steady increase, not explosive.
 
 ### 7️⃣ Hierarchical Clustering
-* **Outcome:** Confirmed the dominance of one common pattern and identified small clusters of rare outliers.
+* **Result:** Confirmed the dominance of one common pattern and identified small clusters of rare outliers.
 
 ---
 
@@ -122,7 +122,7 @@ Establish a baseline model and understand linear relationships.
 | **Ridge Regression** | 0.69 | 2,310 | Stable |
 | **Random Forest** | 0.68 | 2,345 | Non-linear |
 
-**Winner:** Linear / Ridge Regression.
+**Best Resulting Model:** Linear / Ridge Regression.
 
 ### Classification Model
 | Model | Accuracy | Precision | Recall |
