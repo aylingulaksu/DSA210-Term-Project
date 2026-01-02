@@ -1,193 +1,154 @@
-📊 Machine Learning Analysis
+✧🤖📊⋆˙ Machine Learning Analysis
 Advanced Predictive Modeling of Character Name Influence on Baby Naming Trends
 
 After completing exploratory data analysis and statistical testing, I applied multiple machine learning models to predict and classify baby naming trends influenced by fictional character names.
 
-🧠 Feature Engineering
+🧠✨ Feature Engineering
 
-A rich feature set was constructed from the temporal influence dataset to capture historical behavior, phonetic properties, and cultural context.
+Before applying machine learning models, I created a rich feature set from the temporal influence dataset to capture historical behavior, phonetic properties, and cultural context.
 
-🔹 Temporal Features
+⏳ Temporal Features
 
-before_1y, before_3y, before_5y – Popularity before character release
+before_1y, before_3y, before_5y → Popularity before character release
 
-after_1y, after_3y, after_5y – Popularity after release
+after_1y, after_3y, after_5y → Popularity after release
 
-change_1y, change_3y, change_5y – Absolute popularity change
+change_1y, change_3y, change_5y → Absolute change in popularity
 
-pct_change_1y, pct_change_3y – Percentage change
+pct_change_1y, pct_change_3y → Percentage change
 
-🔹 Historical Trend Features
+📜 Historical Trend Features
 
-recent_trend – 5-year moving average growth rate
+recent_trend → 5-year moving average growth rate
 
-total_historical – Total babies with the name before release
+total_historical → Total babies with the name before release
 
-avg_historical – Average annual popularity before release
+avg_historical → Average annual popularity before release
 
-🔹 Name Characteristics
+🔤 Name Characteristics
 
-name_length – Number of characters
+name_length → Number of characters
 
-vowel_count – Number of vowels
+vowel_count → Number of vowels
 
-vowel_ratio – Proportion of vowels (phonetic appeal)
+vowel_ratio → Proportion of vowels (phonetic appeal)
 
-🔹 Context Features
+🎬 Context Features
 
-character_count – Number of characters with the name in release year
+character_count → Number of characters with the name in release year
 
-decade – Decade of character release (cultural era proxy)
+decade → Decade of character release (captures cultural era)
 
-🔹 Binary Targets
+🎯 Binary Targets
 
-had_increase_1y – Popularity increase after 1 year (0/1)
+had_increase_1y → Increase 1 year after release (0/1)
 
-had_increase_3y – Popularity increase after 3 years (0/1)
+had_increase_3y → Increase 3 years after release (0/1)
 
-had_significant_increase – Increase > 100 babies (0/1)
+had_significant_increase → Increase >100 babies (0/1)
 
-📦 Final ML Dataset
+📦📊 Final Machine Learning Dataset
 
-186,404 records (character–name–year combinations)
+186,404 character–name–year records
 
-3,816 unique names tracked
+3,816 unique names tracked over time
 
-20+ engineered features per record
+20+ engineered features per observation
 
-🎯 Problem Framing
+🎯🧩 Problem Framing
 
-Two complementary machine learning tasks were defined:
+I framed the analysis as two machine learning tasks.
 
-1️⃣ Regression Problem
+1️⃣ Regression Task
+Predicting numeric popularity change
 
-Goal: Predict numeric change in baby name popularity
-
-Target: change_3y
+Target variable: change_3y
 
 Why 3 years?
 
-EDA showed influence peaks at 3–5 years
+EDA showed influence peaks around 3–5 years
 
-1-year effects are too noisy
+1-year changes are too noisy
 
 5-year effects are too delayed
 
-2️⃣ Classification Problem
+2️⃣ Classification Task
+Predicting significant popularity increases
 
-Goal: Predict whether a name experiences a significant increase
+Target variable: had_significant_increase
 
-Target: had_significant_increase (increase > 100 babies)
+Threshold: increase >100 babies
 
 Why this threshold?
 
 Filters random noise
 
-Captures culturally meaningful shifts
+Captures culturally meaningful surges
 
-Produces balanced and realistic classes
+Produces balanced, realistic classes
 
-🤖 Machine Learning Models Applied
+🤖📈 Machine Learning Models
 1️⃣ Linear Regression
+Baseline & interpretability
 
-Purpose: Baseline model and interpretability
+Purpose:
+Establish a baseline model and understand linear relationships.
 
-Implementation
+Key Results
 
-LinearRegression()
-
-
-Features
-
-before_5y, character_count, recent_trend
-
-name_length, vowel_ratio, decade, avg_historical
-
-Target
-
-change_3y
-
-📈 Results
 Metric	1-Year	3-Year
-R² Score	0.3595	0.6918
+R²	0.36	0.69
 RMSE	491.75	2,310.14
 MAE	154.01	751.51
-🧠 Interpretation
 
-69% variance explained for 3-year predictions (excellent for social data)
-
-Short-term effects are noisy
-
-Cultural influence takes time
+Key Insight:
+3-year predictions explain ~69% of variance, which is excellent for social and cultural data.
 
 Top Predictive Features
 
-before_5y – Historical popularity
+before_5y → Historical popularity
 
-recent_trend – Momentum effect
+recent_trend → Momentum effect
 
-character_count – Cultural exposure
-
-Key Insight:
-The relationship is largely linear, making this model both effective and interpretable.
+character_count → Cultural exposure
 
 2️⃣ Ridge Regression
+Handling multicollinearity
 
-Purpose: Handle multicollinearity using L2 regularization
+Regularization via L2 penalty
 
-Ridge(alpha=1.0)
+Stabilizes correlated temporal features
 
-Results
 Metric	Value
-R² Score	0.6919
+R²	0.69
 RMSE	2,309.80
 
-Outcome
-
-Nearly identical to Linear Regression
-
-Confirms model stability
-
-Effectively handles correlated temporal features
+Outcome:
+Nearly identical to Linear Regression, confirming model stability.
 
 3️⃣ Lasso Regression
+Feature selection validation
 
-Purpose: Feature selection using L1 regularization
+L1 regularization
 
-Lasso(alpha=1.0)
+Tests redundancy in engineered features
 
-Results
 Metric	Value
-R² Score	0.6918
-RMSE	2,310.18
-Non-zero Features	10 / 10
+R²	0.69
+Non-zero features	10 / 10
 
-Interpretation
+Insight:
+All features contribute meaningfully → feature engineering was effective.
 
-All features retained
-
-No redundant features
-
-Feature engineering was effective
-
-4️⃣ Logistic Regression (Classification)
-
-Purpose: Predict significant popularity increases
-
-LogisticRegression(max_iter=1000)
-
-Results
+4️⃣ Logistic Regression
+Predicting significant name surges
 Metric	Score
 Accuracy	79.6%
 Precision	0.85
 Recall	0.26
-F1-Score	0.39
-Confusion Matrix
-	Pred No	Pred Yes
-Actual No	6,765	138
-Actual Yes	1,780	638
+F1-score	0.39
 
-Key Insight
+Interpretation
 
 High precision → reliable predictions
 
@@ -196,111 +157,101 @@ Low recall → conservative model
 Ideal for identifying high-confidence cultural hits
 
 5️⃣ Random Forest Regression
-
-Purpose: Capture non-linear interactions
-
-RandomForestRegressor(
-    n_estimators=100,
-    max_depth=10,
-    random_state=42
-)
-
-Results
+Non-linear modeling
 Metric	Value
-R² Score	0.6825
+R²	0.68
 RMSE	2,344.79
 MAE	756.90
+
 Top Features
-Feature	Importance
-recent_trend	28.3%
-total_historical	16.6%
-before_1y	15.4%
-before_5y	12.7%
-decade	11.6%
 
-Insight
+recent_trend
 
-Comparable to linear models
+total_historical
 
-Confirms mostly linear dynamics
+before_1y, before_5y
 
-Cultural era matters
+decade
 
-🔍 Clustering Analysis
+Key Insight:
+Non-linear models do not outperform linear ones → the process is largely linear.
+
+🧩🔍 Clustering Analysis
 6️⃣ K-Means Clustering
+Identifying influence archetypes
 
-Purpose: Identify influence archetypes
+Optimal clusters: K = 4
 
-KMeans(n_clusters=4, random_state=42)
+Silhouette score: 0.29
 
+🌟 Cluster Highlights
 
-Optimal K: 4
-Silhouette Score: 0.29
+⭐ Breakout Hits
 
-Cluster Summary
-Cluster	Size	Avg Before	Avg After	% Change	% Significant	Description
-0	30,205	6,967	6,484	+140%	23%	Moderate popularity
-1	1,472	169,790	165,366	+0.3%	37%	Established names
-2 ⭐	642	11	752	+36,403%	100%	Breakout hits
-3	14,282	9,108	9,576	+105%	28%	Modest growth
+Very low initial popularity
 
-Key Insight
+Explode after character release
 
-Cluster 2 represents rare but explosive breakouts
+100% experience significant increase
 
-Established names are resistant to media influence
+🏛️ Established Names
+
+Already highly popular
+
+Media exposure has minimal impact
+
+📈 Moderate Growth Names
+
+Some increase, not explosive
+
+Key Insight:
+Fictional influence follows four distinct behavioral patterns.
 
 7️⃣ Hierarchical Clustering
+Structural validation
 
-Purpose: Alternative structure validation
+Confirms dominance of one common pattern
 
-AgglomerativeClustering(n_clusters=4, linkage="ward")
+Small clusters capture rare outliers
 
+Less informative than K-Means for this dataset
 
-Sample size: 1,000
-
-Highly unbalanced clusters
-
-Confirms dominance of one naming pattern
-
-🏆 Model Comparison
+🏆📊 Model Comparison
 Regression Models
-Model	R²	RMSE	MAE	Notes
-Linear Regression	0.6918	2,310	751	Best balance
-Ridge Regression	0.6919	2,310	—	Handles multicollinearity
-Lasso Regression	0.6918	2,310	—	Feature validation
-Random Forest	0.6825	2,345	757	No gain
+Model	R²	RMSE	Strength
+Linear Regression	0.69	2,310	Interpretable
+Ridge Regression	0.69	2,310	Stable
+Lasso Regression	0.69	2,310	Feature validation
+Random Forest	0.68	2,345	Non-linear
 
 Winner: Linear / Ridge Regression
 
 Classification Model
-Model	Accuracy	Precision	Recall	F1
-Logistic Regression	79.6%	0.85	0.26	0.39
-🔑 Key Findings
+Model	Accuracy	Precision	Recall
+Logistic Regression	79.6%	0.85	0.26
+🔑✨ Key Takeaways
 
 Character name influence is highly predictable
 
-Linear models capture the process effectively
+Linear dynamics dominate cultural naming trends
 
-Four distinct influence archetypes exist
+Momentum and history matter most
 
 Breakout hits are rare but identifiable
 
-Momentum and historical popularity dominate
+Cultural impact follows measurable patterns
 
-⚠️ Limitations
+⚠️🧩 Limitations
 
 Correlation ≠ causation
 
-Class imbalance affects recall
+Class imbalance limits recall
 
-Temporal multicollinearity
+Overlapping temporal features
 
-No media type or genre differentiation
+Media types and genres not distinguished
 
-✅ Conclusion
+🏁🌟 Conclusion
 
-Machine learning confirms that fictional character names meaningfully influence baby naming trends.
-This influence follows interpretable, predictable patterns driven by historical momentum, cultural context, and time.
-
-Cultural impact is not random — it is measurable, structured, and persistent.
+Fictional characters do influence baby names — and the effect is structured, delayed, and predictable.
+Machine learning reveals that cultural trends follow interpretable rules, not randomness.
